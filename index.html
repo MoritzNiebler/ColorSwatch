@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D2P Model Colors</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="title">D2P Model Color Palettes</h1>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <div class="controls">
+                <div class="format-selector">
+                    <label for="copyFormat">Copy format:</label>
+                    <select id="copyFormat" class="format-dropdown">
+                        <option value="hex">Hex (#RRGGBB)</option>
+                        <option value="rgb">RGB (r, g, b)</option>
+                        <option value="hsl">HSL (h, s%, l%)</option>
+                    </select>
+                </div>
+                <div class="tag-filter">
+                    <label for="tagFilter">Filter by tag:</label>
+                    <select id="tagFilter" class="tag-dropdown">
+                        <option value="">All Tags</option>
+                        <option value="Metro">Metro</option>
+                        <option value="MetArt">MetArt</option>
+                    </select>
+                </div>
+                <div class="favorites-filter">
+                    <button id="favoritesToggle" class="favorites-btn">
+                        <span class="favorites-icon">★</span>
+                        <span class="favorites-text">Show Favorites Only</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="palette-grid" id="paletteGrid">
+                <!-- Palettes will be generated here -->
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>Made with ❤️</p>
+        </div>
+    </footer>
+
+    <!-- Go to top button -->
+    <button id="goToTop" class="go-to-top-btn" title="Go to top">
+        <svg class="arrow-up" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 4L12 20M12 4L6 10M12 4L18 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+
+
+
+    <script src="script.js"></script>
+</body>
+</html> 
