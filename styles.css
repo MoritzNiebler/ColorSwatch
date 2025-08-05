@@ -275,8 +275,60 @@ body {
     backdrop-filter: blur(10px);
     padding: 2rem 0;
     text-align: center;
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(0, 0, 0, 0.8);
     border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.footer a {
+    color: #BC4749;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: #8B2F31;
+    text-decoration: underline;
+}
+
+.credits {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.credits p {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.credits-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    align-items: center;
+}
+
+.credits-list li {
+    font-size: 0.8rem;
+    color: rgba(0, 0, 0, 0.6);
+    line-height: 1.4;
+}
+
+.credits-list a {
+    color: #BC4749;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.credits-list a:hover {
+    color: #8B2F31;
+    text-decoration: underline;
 }
 
 /* Responsive Design */
