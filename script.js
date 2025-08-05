@@ -31,11 +31,11 @@ class ColorPaletteManager {
                 {
                     name: "Ocean Breeze",
                     colors: [
-                        { hex: "#2E86AB", rgb: "rgb(46, 134, 171)", hsl: "hsl(200, 58%, 43%)" },
-                        { hex: "#A23B72", rgb: "rgb(162, 59, 114)", hsl: "hsl(330, 47%, 43%)" },
-                        { hex: "#F18F01", rgb: "rgb(241, 143, 1)", hsl: "hsl(35, 99%, 47%)" },
-                        { hex: "#C73E1D", rgb: "rgb(199, 62, 29)", hsl: "hsl(12, 74%, 45%)" },
-                        { hex: "#3B1F2B", rgb: "rgb(59, 31, 43)", hsl: "hsl(330, 31%, 18%)" }
+                        { hex: "#2E86AB", rgb: "rgb(46, 134, 171)", rgb_plain: "(46, 134, 171)", hsl: "hsl(200, 58%, 43%)" },
+                        { hex: "#A23B72", rgb: "rgb(162, 59, 114)", rgb_plain: "(162, 59, 114)", hsl: "hsl(330, 47%, 43%)" },
+                        { hex: "#F18F01", rgb: "rgb(241, 143, 1)", rgb_plain: "(241, 143, 1)", hsl: "hsl(35, 99%, 47%)" },
+                        { hex: "#C73E1D", rgb: "rgb(199, 62, 29)", rgb_plain: "(199, 62, 29)", hsl: "hsl(12, 74%, 45%)" },
+                        { hex: "#3B1F2B", rgb: "rgb(59, 31, 43)", rgb_plain: "(59, 31, 43)", hsl: "hsl(330, 31%, 18%)" }
                     ]
                 }
             ];
@@ -203,6 +203,7 @@ class ColorPaletteManager {
             swatch.style.backgroundColor = color.hex;
             swatch.setAttribute('data-color', color.hex);
             swatch.setAttribute('data-rgb', color.rgb);
+            swatch.setAttribute('data-rgb-plain', color.rgb_plain || this.extractRgbPlain(color.rgb));
             swatch.setAttribute('data-hsl', color.hsl);
             paletteColors.appendChild(swatch);
         });
@@ -245,6 +246,9 @@ class ColorPaletteManager {
                 break;
             case 'rgb':
                 colorValue = colorSwatch.dataset.rgb;
+                break;
+            case 'rgb_plain':
+                colorValue = colorSwatch.dataset.rgbPlain;
                 break;
             case 'hsl':
                 colorValue = colorSwatch.dataset.hsl;
@@ -322,6 +326,15 @@ class ColorPaletteManager {
         } else {
             goToTopBtn.classList.remove('visible');
         }
+    }
+
+    // Extract plain RGB values from rgb(r, g, b) format
+    extractRgbPlain(rgbString) {
+        const match = rgbString.match(/rgb\((\d+),\s*(\d+),\s*(\d+)\)/);
+        if (match) {
+            return `(${match[1]}, ${match[2]}, ${match[3]})`;
+        }
+        return rgbString; // Fallback to original if parsing fails
     }
 
     // Scroll to top with smooth animation
